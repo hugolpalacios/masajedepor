@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="<?php echo is_front_page() ? 'is-active' : ''; ?>">Inicio</a>
 		<a href="<?php echo esc_url( home_url( '/contenido/' ) ); ?>" class="<?php echo is_page( 'contenido' ) ? 'is-active' : ''; ?>">Contenido</a>
 	</nav>
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">Masaje Deportistas</a>
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">MasajeParaDeportistas.com</a>
 	<div class="header-spacer"></div>
 </header>
 

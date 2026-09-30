@@ -6,7 +6,7 @@ $hero_image_id = get_theme_mod( 'mpd_hero_image' );
 $hero_image    = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'full' ) : '';
 ?>
 
-<section class="hero">
+<section class="hero" aria-labelledby="mpd-home-title">
 	<?php if ( $hero_image ) : ?>
 		<img class="hero-media" src="<?php echo esc_url( $hero_image ); ?>" alt="" fetchpriority="high" loading="eager">
 	<?php else : ?>
@@ -26,7 +26,7 @@ $hero_image    = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, '
 
 	<div class="hero-copy">
 		<span class="eyebrow">Editorial MPD</span>
-		<h1><span class="tt-a">Masaje, deporte</span><span class="tt-b">y recuperación.</span></h1>
+		<h1 id="mpd-home-title"><span class="tt-a">Masaje, deporte</span><span class="tt-b">y recuperación.</span></h1>
 		<p class="deck">Historias, guías y evidencia práctica para quienes entrenan, compiten y necesitan recuperarse bien.</p>
 	</div>
 </section>

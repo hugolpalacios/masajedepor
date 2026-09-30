@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 
 <footer class="site-footer">
 	<div class="footer-row">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="footer-logo">Masaje Deportistas</a>
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="footer-logo">MasajeParaDeportistas.com</a>
 		<div class="footer-links">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">Inicio</a>
 			<a href="<?php echo esc_url( home_url( '/contenido/' ) ); ?>">Contenido</a>

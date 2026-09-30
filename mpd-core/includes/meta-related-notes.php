@@ -65,5 +65,19 @@ function mpd_save_related_notes( $post_id ) {
 	$ids = isset( $_POST['mpd_related_notes'] ) ? array_map( 'absint', (array) $_POST['mpd_related_notes'] ) : array();
 	$ids = array_slice( array_unique( $ids ), 0, 3 );
 
+	if ( ! empty( $ids ) ) {
+		$published_ids = get_posts(
+			array(
+				'post_type'      => 'post',
+				'post_status'    => 'publish',
+				'post__in'       => $ids,
+				'posts_per_page' => 3,
+				'orderby'        => 'post__in',
+				'fields'         => 'ids',
+			)
+		);
+		$ids = array_map( 'absint', $published_ids );
+	}
+
 	update_post_meta( $post_id, '_mpd_related_notes', $ids );
 }

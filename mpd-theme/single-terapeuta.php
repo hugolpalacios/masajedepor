@@ -1,6 +1,6 @@
 <?php
 defined( 'ABSPATH' ) || exit;
-get_header( 'perfil' );
+get_header();
 
 while ( have_posts() ) :
 	the_post();
@@ -33,9 +33,8 @@ while ( have_posts() ) :
 		<div class="profile-portrait">
 			<?php if ( has_post_thumbnail() ) : ?>
 				<?php the_post_thumbnail( 'large' ); ?>
-			<?php else : ?>
-				<span class="portrait-tag">Imagen de ejemplo</span>
 			<?php endif; ?>
+			<span class="portrait-tag">Imagen de ejemplo</span>
 		</div>
 	</section>
 

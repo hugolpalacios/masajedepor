@@ -2,7 +2,7 @@
 /**
  * Plugin Name: MPD Core
  * Description: Custom post type, fields and helper functions for MasajeParaDeportistas.com.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Author: Hugo López
  * Text Domain: mpd-core
  */
@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'MPD_CORE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'MPD_CORE_URL', plugin_dir_url( __FILE__ ) );
+define( 'MPD_CORE_VERSION', '0.2.0' );
 
 require_once MPD_CORE_PATH . 'includes/cpt-terapeuta.php';
 require_once MPD_CORE_PATH . 'includes/meta-terapeuta.php';

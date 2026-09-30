@@ -40,8 +40,8 @@ $service = wp_parse_args(
 		<?php endif; ?>
 		<dl class="service-meta">
 			<div><dt>Duración</dt><dd><?php echo esc_html( $service['duration'] ? $service['duration'] : 'Por definir' ); ?></dd></div>
-			<div><dt>Sala</dt><dd><?php echo esc_html( $service['treatment_price'] ? $service['treatment_price'] : 'Consultar' ); ?></dd></div>
-			<div><dt>Domicilio</dt><dd><?php echo esc_html( $service['home_price'] ? $service['home_price'] : 'Consultar' ); ?></dd></div>
+			<div><dt>Sala</dt><dd><?php echo esc_html( $service['treatment_price'] ? $service['treatment_price'] : 'Por definir' ); ?></dd></div>
+			<div><dt>Domicilio</dt><dd><?php echo esc_html( $service['home_price'] ? $service['home_price'] : 'Por definir' ); ?></dd></div>
 		</dl>
 	</div>
 </article>

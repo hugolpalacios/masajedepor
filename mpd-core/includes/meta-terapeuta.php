@@ -75,11 +75,11 @@ function mpd_render_terapeuta_servicios_box( $post ) {
 		'mpd-services-repeater',
 		MPD_CORE_URL . 'assets/services-repeater.js',
 		array( 'jquery' ),
-		'0.1.0',
+		MPD_CORE_VERSION,
 		true
 	);
 
-	echo '<p class="description">Duración y precios son texto libre — usa "Consultar" o "Por definir" mientras no haya montos confirmados.</p>';
+	echo '<p class="description">Duración y precios son texto libre. Usa "Por definir" mientras no haya montos confirmados.</p>';
 	echo '<table class="widefat" id="mpd-services-table"><thead><tr>';
 	foreach ( array( 'Imagen', 'Nombre', 'Descripción', 'Duración', 'Precio sala', 'Precio domicilio', 'URL reserva (opcional)', '' ) as $col ) {
 		echo '<th>' . esc_html( $col ) . '</th>';
@@ -135,6 +135,9 @@ function mpd_render_service_row( $i, $service ) {
 
 add_action( 'save_post_terapeuta', 'mpd_save_terapeuta_meta' );
 function mpd_save_terapeuta_meta( $post_id ) {
+	if ( 'terapeuta' !== get_post_type( $post_id ) || wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) ) {
+		return;
+	}
 	if ( ! isset( $_POST['mpd_terapeuta_nonce'] ) || ! wp_verify_nonce( $_POST['mpd_terapeuta_nonce'], 'mpd_save_terapeuta' ) ) {
 		return;
 	}
@@ -162,6 +165,9 @@ function mpd_save_terapeuta_meta( $post_id ) {
 	$services = array();
 	if ( isset( $_POST['mpd_services'] ) && is_array( $_POST['mpd_services'] ) ) {
 		foreach ( $_POST['mpd_services'] as $row ) {
+			if ( ! is_array( $row ) ) {
+				continue;
+			}
 			$row = wp_unslash( $row );
 			$name = isset( $row['name'] ) ? sanitize_text_field( $row['name'] ) : '';
 			if ( '' === $name ) {
