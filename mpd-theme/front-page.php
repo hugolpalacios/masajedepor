@@ -8,7 +8,7 @@ $hero_image    = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, '
 
 <section class="hero">
 	<?php if ( $hero_image ) : ?>
-		<img class="hero-media" src="<?php echo esc_url( $hero_image ); ?>" alt="">
+		<img class="hero-media" src="<?php echo esc_url( $hero_image ); ?>" alt="" fetchpriority="high" loading="eager">
 	<?php else : ?>
 		<div class="hero-media-fallback" aria-hidden="true"></div>
 	<?php endif; ?>
