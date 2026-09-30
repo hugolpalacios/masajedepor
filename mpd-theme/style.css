@@ -13,28 +13,21 @@ Text Domain: mpd-theme
 /* ==========================================================================
    Tokens
    ========================================================================== */
+/*
+ * Fixed brand palette — intentionally does NOT follow the visitor's OS/browser
+ * dark-mode setting. Marfil + petróleo + terracota is the brand identity;
+ * it should look the same for every visitor regardless of their system theme.
+ */
 :root{
   --bg:#F5F1E9; --surface:#FBF7EE; --surface-2:#EAE0CB; --strong:#123F4E; --muted:#66747A;
   --accent:#BA7458; --accent-light:#DFAB91; --sport:#4F6B45; --line:#E1D3B8; --focus:#123F4E;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#12181B; --surface:#182226; --surface-2:#202C30; --strong:#CFE3E6;
-    --muted:#94A6AB; --accent:#D98F6C; --accent-light:#E9C4AC; --sport:#8FB07E;
-    --line:#28363B; --focus:#D98F6C;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#12181B; --surface:#182226; --surface-2:#202C30; --strong:#CFE3E6;
-  --muted:#94A6AB; --accent:#D98F6C; --accent-light:#E9C4AC; --sport:#8FB07E;
-  --line:#28363B; --focus:#D98F6C;
 }
 
 /* ==========================================================================
    Reset & base
    ========================================================================== */
 *, *::before, *::after{ box-sizing:border-box; }
-html{ -webkit-text-size-adjust:100%; }
+html{ -webkit-text-size-adjust:100%; color-scheme:light; }
 body{
   margin:0; background:var(--bg); color:var(--muted);
   font-family:"Instrument Sans", ui-sans-serif, system-ui, sans-serif;

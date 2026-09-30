@@ -70,3 +70,13 @@ add_filter( 'excerpt_length', 'mpd_excerpt_length' );
 function mpd_excerpt_length( $length ) {
 	return 20;
 }
+
+/**
+ * This is a classic PHP theme with no block templates, so WordPress's
+ * global-styles inline block (core's default color/gradient/spacing
+ * presets, meant for block themes) is dead weight on every page load.
+ * Core hooks wp_enqueue_global_styles() twice (head + footer hoisting);
+ * remove both so it never runs.
+ */
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
